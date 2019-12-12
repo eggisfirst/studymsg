@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {  //编译选项  node --> 已经可以支持es7
+    "target": "es2016", //配置编译目标代码的版本标准
+    "module": "commonjs", //配置编译目标使用的模块化标准：commonjs,es6
+    "lib": ["es2016"],      //表示默认条件下ts使用的环境,但是去掉dom后没办法用console//安装@types
+    "outDir": "./dist",
+    "strictNullChecks": true,
+    "removeComments": true,    //编译结果移除注释
+    "noImplicitUseStrict": true,  //不使用严格模式
+    "esModuleInterop": true,   //commonjs可以使用默认模块导入
+    "noEmitOnError": true,  //错误代码不到编译结果中
+    // "strictPropertyInitialization": true  //更加严格的属性初始化
+    "experimentalDecorators": true
+  },
+  "include": ["./src"],     //只编译src下面的ts文件
+  // "files": ["./src/index.ts"] //只编译一个文件
+
+}

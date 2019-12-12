@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数组随机排序</title>
+  <style>
+    h1 {
+      width: 80%;
+      height: 50px;
+      position: relative;
+    }
+
+    h1::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      box-sizing: border-box;
+      border: 1px solid red;
+      width: 200%;
+      height: 200%;
+      transform-origin: 0 0;
+      transform: scale(0.5)
+    }
+  </style>
+</head>
+
+<body>
+  <h1>123</h1>
+  <script>
+    // var arr = [2,4,3,1,25,6,7,3]
+    // arr.sort(function(a,b){
+    //   return (Math.random() - 0.5)
+    // })
+    // console.log(arr)
+
+
+    //请将数组中所有的0移动到数组尾部
+    var arr = [10, 0, 2, 3, 0, 12, 30, 0, 12, 11]
+    var arr1 = arr.filter(v => v !== 0)
+    var arr2 = arr.filter(v => v === 0)
+    var arr3 = [...arr1, ...arr2]
+    console.log(arr3)
+  </script>
+</body>
+
+</html>

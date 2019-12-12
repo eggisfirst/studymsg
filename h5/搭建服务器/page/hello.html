@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  #main {
+    width: 100px;
+    height: 100px;
+    background: #abcdef;
+    position: absolute;
+  }
+  </style>
+</head>
+<body>
+  hello xiaowei!
+  <div id="main"></div>
+  <script>
+  // window.addEventListener('deviceorientation', function(e) {
+  //   document.getElementById('main').innerHTML = `
+  //   alpha: ${e.alpha},
+  //   beta:${e.beta},
+  //   gama: ${e.gamma}
+  //   `
+  // })
+
+  // window.addEventListener('devicemotion',function(e) {
+  //   document.getElementById('main').innerHTML = `
+  //   x:${e.acceleration.x},
+  //   y:${e.acceleration.y},
+  //   z:${e.acceleration.z},
+  //   `
+  //   //判断在摇一摇
+  //   if(Math.abs(e.acceleration.x) > 9 ||Math.abs(e.acceleration.y) > 9 || Math.abs(e.acceleration.z) > 9 ) {
+  //     alert('在晃')
+  //   }
+  // })
+
+  function move() {
+    var square = document.getElementById('main')
+    if(square.offsetLeft > 700) {
+      return
+    }
+    square.style.left = square.offsetLeft + 20 + 'px'
+    // requestAnimationFrame(move)
+  }
+  // move()
+  setInterval(move, 1000/60);
+  
+  </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>canvas</title>
+  <style>
+    canvas {
+      color: #000;
+      border: 1px solid red;
+    }
+  
+  </style>
+</head>
+<body>
+  <canvas id="mycanvas" width="500" height="500"></canvas>
+  <script>
+    var canvas = document.getElementById('mycanvas')
+    var ctx = canvas.getContext('2d')
+    ctx.lineWidth = 1
+    // ctx.strokeStyle = 'red'
+    // ctx.moveTo(100,10)
+    // ctx.lineTo(100,100)
+    // ctx.lineTo(50,100)
+    // ctx.lineTo(50,200)
+    // ctx.closePath()
+    // ctx.fill()
+    // ctx.moveTo(200,200)
+    // ctx.lineTo(200,400)
+    // ctx.strokeStyle = '#000'
+    // ctx.closePath()
+    // ctx.stroke()
+    // ctx.rect(100,100,200,10)
+    
+    // ctx.strokeRect(100, 100, 100, 200);
+    // var y = 20
+    // function draw(y) {
+    //   ctx.fillRect(100,y,20,20)
+    // }
+    // var timer = setInterval(() => {
+    //   ctx.clearRect(0, 0, 500, 500)
+    //   draw(y)
+    //   y+=10
+    //   if(y > 480) {
+    //     clearInterval(timer)
+    //   }
+    // }, 50);
+    // arc(x, y, r, 起始弧度, 结束弧度,弧形的⽅方向 )
+    // arc(100, 100, 0 )
+    // ctx.arcTo(100, 100, 50, 50, 100)
+      // ctx.beginPath();
+      ctx.moveTo(100,50)
+      ctx.arcTo(200,10,200,100,30)
+      // ctx.arcTo(200,150,100,150,30)
+      // ctx.arcTo(100,150,100,50,30)
+      // ctx.arcTo(100,50,200,50,30)
+      // ctx.closePath()
+      ctx.stroke()
+    
+
+  </script>
+</body>
+</html>

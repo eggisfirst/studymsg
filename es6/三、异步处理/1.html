@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function toData(obj) {
+      if (obj === null) {
+        return
+      }
+      let arr = []
+      for (const key in obj) {
+        let str = key + '=' + obj[key]
+        arr.push(str)
+      }
+      return arr.join('&')
+    }
+
+    function ajax(obj) {
+      return new Promise((resolve, reject) => {
+        obj.type = obj.type || 'get'
+        obj.data = obj.data || null
+        obj.async = obj.async || true
+        let xhr = null
+        if (window.XMLHttpRequest) {
+
+          xhr = new XMLHttpRequest()
+        } else {
+          xhr = new ActiveXObject('Microsoft.XMLHTTP')
+        }
+
+        if (obj.type === 'post') {
+          xhr.open(obj.type, obj.url, obj.async)
+          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+          let data = toData(obj.data)
+          xhr.send(data)
+        } else {
+
+          let url = obj.url + "?" + toData(obj.data)
+          xhr.open(obj.type, url, obj.async)
+          xhr.send()
+        }
+        xhr.onreadystatechange = function () {
+
+          if (xhr.readyState === 4) {
+            if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) {
+              resolve(JSON.parse(xhr.responseText))
+            }
+            else {
+              reject(xhr.status)
+            }
+          }
+        }
+      })
+
+    }
+
+    // const pro = new Promise((resolve, reject) => {
+    //   resolve(123);
+
+    //         setTimeout(() => {
+    //           console.log('b')
+    //         }, 3000);
+    //         console.log('c')
+    //     })
+    //     console.log(pro)
+    //     pro.then(data => {
+    //         // pro的状态是pending
+    //         console.log(data);
+    //     })
+    // const pro1 = new Promise((resolve, reject) => {
+    //         throw 1;
+    //     })
+    //     console.log(pro1)
+    //     const pro2 = pro1.then(result => {
+    //         return result * 2
+    //     }, err => {
+    //         return err * 3;
+    //     });
+    //     pro1.catch(err => {
+    //         return err * 2;
+    //     })
+    //     console.log(pro2)
+    //     //pro2类型：Promise对象
+    //     //pro2的状态：
+    //     pro2.then(result => console.log(pro2,result * 2), err => console.log(err * 3))
+
+    //     //输出：6
+    // const pro1 = new Promise((resolve, reject) => {
+    //         resolve(1);
+    //     })
+
+    //     const pro2 = new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             resolve(2);
+    //         }, 3000);
+    //     })
+
+    //     pro1.then(result => {
+    //         console.log(pro1,pro2,"结果出来了，得到的是一个Promise")
+    //         return pro2;
+    //     }).then(result => {
+    //       console.log(pro2,result)
+    //       return result
+    //     }).then(result => {
+    //         console.log(123123,result)
+    //     })
+
+    // ajax({
+    //   url: '../../ES6所需资料/8. 异步处理/8-1. 事件和回调函数的缺陷/data/students.json',
+    // }).then(res => {
+    //   for (const key of res) {
+    //     if (key.name === '李华') {
+    //       return key.classId
+    //     }
+    //   }
+    // }).then(classId => {
+    //   return ajax({
+    //     url: "../../ES6所需资料/8. 异步处理/8-1. 事件和回调函数的缺陷/data/classes.json"
+    //   }).then(res => {
+    //     for (const key of res) {
+    //       if (key.id === classId) {
+    //         return key.teacherId
+    //       }
+    //     }
+    //   })
+    // }).then(teacherId => {
+    //    ajax({
+    //     url: "../../ES6所需资料/8. 异步处理/8-1. 事件和回调函数的缺陷/data/teachers.json"
+    //   }).then(res => {
+    //     for (const key of res) {
+    //       if (key.id === teacherId) {
+    //         console.log(key)
+    //       }
+    //     }
+    //   })
+    // }).then(res => {
+    //   console.log(123,res)
+    // })
+
+    // function biaobai(god) {
+    //   return new Promise((resolve, reject) => {
+    //     console.log(`向${god}发送短信`)
+    //     setTimeout(() => {
+    //       if (Math.random() < 0.1) {
+    //         resolve(true)
+    //       } else {
+    //         resolve(false)
+    //       }
+    //     }, Math.floor(Math.random() * (3000 - 1000) + 1000));
+    //   })
+    // }
+    // let gods = ['女神1', '女神2','3',4]
+    // let pro = null
+
+    // for (let index = 0; index < gods.length; index++) {
+    //   if (index === 0) {
+    //     pro = biaobai(`${gods[0]}`)
+    //   }
+    //   console.log(pro)
+    //   pro = pro.then(res => {
+    //     if (res === undefined) {
+    //       return
+    //     }
+    //     else if (res) {
+    //       console.log(`${gods[index]}同意了`)
+    //       return
+    //     }
+    //     else {
+    //       console.log(`${gods[index]}拒绝了`)
+    //       if (index < gods.length - 1) {
+    //         return biaobai(`${gods[index + 1]}`)
+    //       }
+    //     }
+    //   })
+
+    // }
+
+    // pro = pro.then(res => {
+    //   if (res) {
+    //     console.log('女神1同意了')
+    //     return
+    //   } else {
+    //     console.log('女神1拒绝了')
+    //     return biaobai('女神2').then(res => {
+    //       return res
+    //     })
+    //   }
+    // })
+    // pro = pro.then(res => {
+    //   if (res === undefined) {
+    //     return
+    //   } else if (res) {
+    //     console.log('女神2同意了')
+    //     return
+    //   }
+    //   else {
+    //     console.log('女神2拒绝了')
+    //     return biaobai('女神3').then(res => {
+    //       return res
+    //     })
+    //   }
+    // })
+    // pro = pro.then(res => {
+    //   if (res === undefined) {
+    //     return
+    //   }
+    //   else if (res) {
+    //     console.log('女神3同意了')
+    //     return
+    //   }
+    //   else {
+    //     console.log('都拒绝了')
+    //   }
+    // })
+//     const pro1 = new Promise((resolve, reject) => {
+//   resolve(1);
+// })
+
+// const pro2 = new Promise((resolve, reject) => {
+//   console.log('object')
+//   setTimeout(() => {
+//     console.log(22222)
+//     resolve(2);
+//   }, 3000);
+// })
+
+// pro1.then(result => {
+//   console.log("结果出来了，得到的是一个Promise",result)
+//     pro2;
+// }).then(result => {
+//   console.log(pro2,result)
+// }).then(result => {
+//   console.log(result)
+// })
+// const pro1 = new Promise((resolve, reject) => {
+//   throw 1; //推向rejected状态
+// })
+// const pro2 = pro1.then(result => {
+//   return result * 2
+// }, err => {
+//    throw err * 3;  //1*3 返回3
+// });
+// pro1.catch(err => {  //返回的是一个新的promise对象，跟pro2没关系
+//   return err * 2;
+// })
+// console.log(pro2)
+// //pro2类型：Promise对象
+// //pro2的状态：
+// pro2.then(result => console.log(pro2,result * 2), err => console.log(err * 3))
+// const pro1 = new Promise((resolve, reject) => {
+//   resolve(1)
+// })
+
+// const pro2 = pro1.then(result => {
+//   return result * 2  //只要当pro1的这句话执行完后pro2的状态才会变成已决
+// }, err => {
+//   return err * 3;
+// });
+// console.log(pro2)
+  // const pro = new Promise((res,rej) => {
+  //   setTimeout(() => {
+  //     throw 1
+  //   }, 10000);
+  // })
+
+  // pro.catch(res => {
+  //   console.log(123,res)
+  // })
+
+  // const pro = new Promise((res,rej) => {
+  //   rej(1)
+  // })
+  // pro.finally(() => {console.log('finally1')})
+  // pro.finally(() => {console.log('finally2')})
+  // // pro.then((res) => {console.log('then',res)})
+  // pro.catch((res) => {console.log('catch',res)})
+    const pro = new Promise((res,rej) => {
+      res(1)
+    })
+    // pro.catch(res => {
+    //   console.log('catch',res)
+    // })
+
+    const pro2 =  Promise.resolve(pro)
+    
+    console.log(pro2 === pro)
+    // pro2.catch(res => {
+    //   console.log('catch2',res)
+    // })
+  </script>
+</body>
+
+</html>

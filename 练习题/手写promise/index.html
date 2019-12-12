@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="index.js"></script>
+
+  <script>
+     function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+        const proms = [];
+        for (let i = 0; i < 10; i++) {
+            proms.push(new MyPromise((resolve, reject) => {
+                setTimeout(() => {
+                        // resolve(i);
+                    if (Math.random() < 0.5) {
+                        console.log(i, "完成");
+                        resolve(i);
+                    } else {
+                        console.log(i, "失败")
+                        reject(i);
+                    }
+                }, getRandom(1000, 5000));
+            }))
+        }
+        //等到所有的promise变成resolved状态后输出: 全部完成
+        const pro = MyPromise.all(proms)
+        pro.then(datas => {
+            console.log("有一个完成", datas);
+        })
+        pro.catch(err => {
+            console.log("有一个失败", err);
+        })
+
+    // const pro = new MyPromise((resolve, rejecct) => {
+    //   console.log('未决阶段的代码')
+    //   setTimeout(() => {
+    //     resolve(1000)
+    //   }, 2000);
+    // })
+    // pro.then(res => {
+    //   console.log('err',res)
+    // },err => {
+    //   console.log('err1,',err)
+    // })
+
+    //const p = new Promise(res => {
+      // res(123)
+    // })
+    // const pro = MyPromise.resolve(new MyPromise((res => {res(456)})))
+    // pro.then(res => {
+    //   console.log(1,res)
+    // })
+    // const pro = MyPromise.reject(2222)
+    // // pro.then(res => {
+    // //   console.log(1,res)
+    // // })
+    // pro.catch(err => {
+    //   console.log(err)
+    // })
+   
+    //   console.log(pro)
+   
+  //   const pro = new MyPromise((resolve, reject) => {
+  //     console.log('未决执行阶段')
+  //     setTimeout(() => {
+  //       resolve(123)
+  //     }, 2000);
+  //   })
+  //   // pro.catch(err => {
+  //   //   console.log(123,err)
+  //   // })
+  //  pro.then(res => {
+  //     console.log(1,res)
+  //     return 123
+  //   }).then(res => {
+  //     console.log(2,res)
+  //     return new MyPromise(res => {
+  //       res(456)
+  //     })
+  //   }).then(res => {
+  //     console.log(3,res)
+  //   })
+
+
+  </script>
+</body>
+
+</html>

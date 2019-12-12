@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>css3选择器</title>
+  <style>
+  * {
+    padding: 0;
+    margin: 0
+  }
+  .container {
+    width: 500px;
+    height: 500px;
+    border: 1px solid red;
+  }
+  .box {
+    /* display: flex; */
+  }
+  input {
+    width:  30px;
+    height: 30px;
+    border: 1px solid red;
+  }
+  .contenta {
+    width: 500px;
+    height: 300px;
+    background: red;
+    display: none;
+  }
+  .contentb {
+    width: 500px;
+    height: 300px;
+    background: green;
+    display: none;
+
+  }
+  .contentc {
+    width: 500px;
+    height: 300px;
+    background: blue;
+    display: none;
+  }
+
+  .input1:checked :not + div{
+    display: block
+  }
+  .input2:checked div:not-of-type(1){
+    display: block
+  }
+  .input3:checked div:not-of-type(3){
+    display: block
+  }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- <div class="box">
+      <input type="radio" value="a" checked name="test" class="input1">a</input>
+      <div class="contenta">a</div>
+    </div>
+    
+    <div class="box">
+      <input type="radio" value="b"  name="test" class="input1">b</input>
+      <div class="contentb">b</div>
+    </div>
+    <div class="box">
+      <input type="radio" value="c"  name="test" class="input1">c</input>
+      <div class="contentc">c</div>
+    </div> -->
+    <div class="box">
+      <div class="contenta">a</div>
+      <input type="radio" id="1" value="a" checked name="test" class="input1">a</input>
+      <div class="contentb">b</div>
+      <input type="radio" id="2" value="b"  name="test" class="input2">b</input>
+      <div class="contentc">c</div>
+      <input type="radio" id="3" value="c"  name="test" class="input3">c</input>
+    </div>
+  </div>
+</body>
+</html>

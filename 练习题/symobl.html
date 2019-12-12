@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+  const Symbolfor = (() => {
+    const global = {}
+    return function (name) {
+      if(!global[name]) {
+        global[name] = Symbol(name)
+      }
+      
+      return global[name]
+    }
+  })()
+
+  var a = Symbolfor('abc')
+  var b = Symbolfor('ac')
+  console.log(a === b)
+
+  // Symbolfor()
+//     const obj = {
+//     a: 1,
+//     b: 2,
+//     [Symbol.for("c")]: 3
+// }
+
+// console.log(obj[Symbol.for("c")]);
+//     const syb1 = Symbol.for("abc");
+// const syb2 = Symbol.for("abc");
+// console.log(syb1 === syb2)
+// const obj1 = {
+//     a: 1,
+//     b: 2,
+//     [syb1]: 3,
+//     [syb2]: 4
+// }
+
+// const obj2 = {
+//     a: "a",
+//     b: "b",
+//     [syb2]: "c"
+// }
+
+// console.log(obj1, obj2);
+//    const sy1 = Symbol()
+// const obj = {
+//   a: 1,
+//   b: 2,
+//   [sy1]: 31232
+// }
+// const sy = Object.getOwnPropertySymbols(obj)
+// console.log(obj[sy[0]]) //3
+    
+
+    // const Hexo = (() => {
+    //   const getRandom = Symbol.for('getRandom')
+    //   return  class Hexo {
+    //     constructor(attack, defence, hp) {
+    //       this.attack = attack
+    //       this.defence = defence
+    //       this.hp = hp
+    //     }
+    //     gongji() {
+    //       let shanghai = this.attack * this[getRandom](4,1)
+    //       console.log(111,shanghai)
+    //     }
+    //     [getRandom](max, min) {
+    //       return Math.random()*(max - min) + min
+    //     }
+    //   }
+    // })()
+      
+    //   var a = new Hexo(10, 20, 200)
+    //   a.gongji()
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .one {
+      position: relative;
+      z-index: 2;
+      width: 500px;
+      height: 500px;
+      background-color: #ccc;
+    }
+
+    .two {
+      float: left;
+      /* position: absolute;
+      z-index: -1; */
+      width: 400px;
+      height: 400px;
+      background-color: red;
+    }
+
+    .three {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 5;
+      width: 300px;
+      height: 300px;
+      background-color: #007aff;
+    }
+
+    .four {
+      display: block;
+      /* position: absolute;
+      z-index: 1; */
+      width: 450px;
+      height: 450px;
+      background-color: pink;
+    }
+
+    .five {
+      display: inline-block;
+      width: 600px;
+      height: 600px;
+      background-color: green;
+      opacity: 0.6;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .six {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background-color: blue;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    #one {
+      height: 100px;
+      width: 100px;
+      border: 1px solid red;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div class="one">
+    <div class="two"></div>
+    <div class="three"></div>
+    <div class="four"></div>
+    <div class="five"></div>
+
+  </div> -->
+  <div id="one">123123</div>
+  <!-- <div class="four">
+    <div class="five"></div>
+    <div class="six"></div>
+  </div> -->
+
+
+
+  <script>
+    var dom = document.getElementById('one')
+    let initX = 0,initY = 0;
+    let disX = 0,disY = 0
+
+    dom.addEventListener('mousedown',(e) => {
+      initX = e.clientX
+      initY = e.clientY
+    })
+    document.addEventListener('mousemove',(e) => {
+      const x = e.clientX
+      const y = e.clientY
+      const dX = x - initX
+      const dY = y - initY
+
+      const left = parseInt(dom.style.left || 0)
+      const top = parseInt(dom.style.top || 0)
+
+      dom.style.left = left + 'px'
+      dom.style.top = top + 'px'
+
+      initX = x
+      initY = y
+    })
+
+
+    // var dom = document.getElementById('one')
+    // console.log(123,dom)
+    // dom.addEventListener('click',() => {
+    //   // this.FD() 
+    //   this.JL()
+
+    // })
+   
+    //防抖
+    // function fn() {
+    //   console.log(12312)
+    // }
+    // let timer = null
+    // function FD() {
+    //   clearTimeout(timer)
+    //     timer = setTimeout(() => {
+    //       fn()
+    //     }, 3000);
+    // }
+    
+    //节流
+    // function fn() {
+    //   console.log('sdads')
+    // }
+
+    // let timer = null
+
+    // function JL() {
+
+    //   if(timer) {
+    //     //
+    //   }else {
+    //     timer = setTimeout(() => {
+    //       fn()
+    //       timer = null
+    //     }, 1000);
+    //   }
+    // }
+
+    // var a = 1;
+    // var b = 3;
+
+    // [a, b] = [b, a];
+    // console.log(a); // 3
+    // console.log(b); // 1
+
+    // function myFunction(x, y, z) {
+    //   console.log(x)
+    //  }
+    // var args = [0, 1, 2];
+    // // myFunction.apply(null, args);
+    // myFunction(...args)
+
+    // 如果我们传递一个数组来推送，它实际上会将该数组作为单个元素添加，而不是单独添加元素，
+    // function callSomething(thing = something()) {
+    //   return thing;
+    // }
+
+    // let numberOfTimesCalled = 0;
+    // function something() {
+    //   console.log(numberOfTimesCalled)
+    //   numberOfTimesCalled += 1;
+
+    //   return numberOfTimesCalled;
+    // }
+
+    // callSomething(); // 1
+    // callSomething(); // 2
+
+    // 'use strict';
+    // var obj = {
+    //   a: 10
+    // };
+
+    // Object.defineProperty(obj, "b", {
+    //   get: () => {
+    //     console.log(this.a, typeof this.a, this);
+    //     return this.a + 10;
+    //     // 代表全局对象 'Window', 因此 'this.a' 返回 'undefined'
+    //   }
+    // });
+    // console.log(obj.b)
+    // function foo(n) {
+    //   console.log( arguments[0])
+    //   var f = () => arguments[0] + n; // 隐式绑定 foo 函数的 arguments 对象. arguments[0] 是 n,即传给foo函数的第一个参数
+    //   return f();
+    // }
+    // foo(1)
+    // var age = 'age'
+    // function Person() {
+    //   // Person() 构造函数定义 `this`作为它自己的实例.
+    //   this.age = 0;
+
+    //   setInterval(function growUp() {
+    //     // 在非严格模式, growUp()函数定义 `this`作为全局对象, 
+    //     // 与在 Person()构造函数中定义的 `this`并不相同.
+    //     // this.age++;
+    //     console.log(123,this,this.age)
+    //   }, 1000);
+    // }
+
+    // var p = new Person();
+    // let len = 10;
+    // function fn() {
+    //   console.info(this,this.len)
+    // }
+    // fn();
+    // let Person = {
+    //   len: 5,
+    //   say: function () {
+    //     fn();
+    //     console.log(arguments[0])
+    //     arguments[0]();
+    //   }
+    // }
+    // Person.say(fn);
+
+    // function getRandom(min,max) {
+    //   const dec = max - min
+    //   return Math.floor(Math.random() * dec + max)
+    // }
+    // console.log(getRandom(0,1))
+    //2 3 1  4 5 6
+    // function sleep(ms) {
+    //   setTimeout(() => {
+    //     console.log(123)
+    //   }, ms);
+    //   // return new Promise(resolve => setTimeout(resolve, ms));
+    // }
+    // const a = 1
+    // const b = 2;
+      // (function a(b) {  //a: fn
+      //   a = 3
+      //   b = 20
+      //   console.log(a)
+      //   console.log(b)
+      // },10);
+
+      // function c() {
+
+      // };
+
+      // c = 1;
+      // console.log(c)
+
+  </script>
+</body>
+
+</html>

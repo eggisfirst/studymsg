@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    h1>strong {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <h1>This is
+    <strong>very</strong>
+    <strong>very</strong>
+    important.</h1>
+  <h1>This is
+    <em>really
+      <strong>very</strong>
+    </em> important.
+  </h1> -->
+  <!-- <a href="http://baidu.com" target="http://baidu.com">baidu</a> -->
+
+
+  <script>
+     function returnPromise() {
+      return new Promise(function (resolve, reject) {
+        setTimeout(() => {
+          resolve('fuck')
+        }, 3000)
+      })
+    }
+
+     returnPromise().then((result) => {
+      result === 'fuck'
+      console.log('result',result)
+    })
+
+    var result =  returnPromise()  // 注意只有控制台支持顶级作用域的 await，JS 文件里的 await 只能写在 async 函数里
+    result === 'fuck' 
+    // Promise.reject("Testing static reject")
+    // Promise.reject("22222error")
+
+    // window.onunhandledrejection = function (e) {
+    //   console.log('e',e.reason);
+    //   e.preventDefault();
+    // }
+    // window.addEventListener('unhandledrejection', function (event) {
+
+    //   console.log('event',event.reason)
+    //   event.preventDefault();
+    // });
+
+
+
+  </script>
+
+</body>
+
+</html>

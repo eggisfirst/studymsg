@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // async function getPromise() {
+    //     if (Math.random() < 0.5) {
+    //         return 1;
+    //     } else {
+    //         throw 2;
+    //     }
+    // }
+
+    // async function test() {
+    //     try {
+    //         const result = await getPromise();
+    //         console.log("正常状态", result)
+    //     } catch (err) {
+    //         console.log("错误状态", err);
+    //     }
+    // }
+
+    // test();
+
+    //  async function test1() {
+    //   if(Math.random() < 0.6) {
+    //     return 1
+    //   }else {
+    //     throw 2
+    //   }
+    // }
+
+    // async function test2() {
+    //   try {
+    //     const result = await test1()
+    //     console.log('suc',result)
+    //   } 
+    //   catch (err) {
+    //     console.log('err',err)
+    //   }
+    // }
+    // test2()
+    //   function biaobai(god) {
+    //     return new Promise(resolve => {
+    //         console.log(`邓哥向${god}发出了表白短信`);
+    //         setTimeout(() => {
+    //             if (Math.random() < 0.3) {
+    //                 //女神同意拉
+    //                 resolve(true)
+    //             } else {
+    //                 //resolve
+    //                 resolve(false);
+    //             }
+    //         }, 500);
+    //     })
+    // }
+    
+    // (async () => {
+    //   let gods = [1,2,3]
+    //   for (let i = 0; i < gods.length; i++) {
+    //     let g = gods[i]
+    //     const result = await biaobai(g)
+    //     if(result) {
+    //       console.log(`${g}同意了，不用再表白了！！！`);
+    //       break;
+    //     }
+    //     else {
+    //       console.log(`${g}没有同意`)
+
+    //     }
+        
+    //   }
+    // })()
+
+    function father() {
+      var a = 20
+      debugger;
+      function son() {
+        // a++;
+        let b = a
+        debugger;
+        console.log(a)
+      }
+      return son
+    }
+    debugger;
+    var result = father()
+    debugger;
+    result()
+    debugger;
+    result()
+
+    // debugger
+    // function father() {
+    //   debugger
+    //   function son() {
+    //     debugger
+    //   }
+    //   return son
+    // }
+    // let temp = father()
+    // temp()
+
+    // var a = null
+    // function f() {
+    //   var n = 1
+    //   function aa() {
+    //     n++
+    //   }
+    //   a = aa
+    // }
+    // a()
+    
+    
+
+    // {
+    //   AO: {
+    //     a: 30
+    //   },
+    //   scope: [
+    //   father.AO,gobal.AO
+    //   ]
+    // }
+
+    // {
+
+    //   scope: [
+    //   son.AO,father.AO,gobal.AO
+    //   ]
+    // }
+   
+    
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+input {
+    border: 1px solid #aaa;
+    height: 40px;
+    font-size: 16px;
+    margin: 30px auto;
+    width: 500px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tip{
+    position: absolute;
+    box-sizing: border-box;
+    padding: 10px 0;
+    border: 1px solid #aaa;
+    text-align: left;
+    max-height: 300px;
+    overflow: hidden auto;
+    width: 500px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 80px;
+    display: none;
+}
+
+.tip li{
+    height: 30px;
+    line-height: 30px;
+    color: #888;
+    cursor: pointer;
+    padding: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tip li .key{
+    color: #f40;
+}
+
+.tip li.hover{
+    background: #ddd;
+}

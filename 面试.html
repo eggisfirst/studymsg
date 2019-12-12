@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <!-- <ul id="test">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul> -->
+
+  <script>
+    // const ul = document.getElementById("test");
+    // const li = ul.getElementsByTagName("li");
+    // ul.onclick =  (e) =>  {
+    //   const e = e || window.event;
+    //   const target = e.target || e.srcElement;
+    //   if (target.nodeName.toLowerCase() == "li") {
+    //     for (let i = 0; i < li.length; i++) {
+    //       if (li[i] === target) {
+    //         alert(i)
+    //       }
+    //     }
+    //   }
+
+    // }
+    // var arr = [1, 2, 3, 3, 12, 2, 3, 4, 2, 1, 12, 2, 3, 4, 4, 4, 1]
+    // console.log(arr.slice(3,5))
+    // function getSum(arr, iIndex, jIndex) {
+    //   var sum = 0
+    //   var len = arr.length
+    //   if (iIndex < len && jIndex < len) {
+    //     for (var i = iIndex; i <= jIndex; i++) {
+    //       sum += arr[i]
+    //     }
+    //     console.log(sum)
+    //   }else {
+    //     console.log('超出范围')
+    //   }
+
+    // }
+    // const UniqueID = Sup => class extends Sup {
+    //   constructor(...args) {
+    //     super(...args);
+    //     Object.defineProperty(this, "id", {
+    //       value: Symbol(),
+    //       writable: false,
+    //       enumerable: false
+    //     });
+    //   }
+    // }
+
+    // const Immutable = Sup => class extends Sup {
+    //   constructor(...args) {
+    //     super(...args);
+    //     Object.freeze(this);
+    //   }
+    // }
+
+    // const NumArray = (function () {
+    //   let sumTable = {};
+    //   return class extends Immutable(UniqueID(Array)) {
+    //     constructor(...args) {
+    //       super(...args);
+    //       let sum = 0;
+    //       let table = [0];
+
+    //       for (let i = 0; i < this.length; i++) {
+    //         sum += this[i];
+    //         table.push(sum);
+    //       }
+    //       sumTable[this.id] = table;
+    //     }
+    //     sumRange(i, j) {
+    //       let table = sumTable[this.id];
+    //       return table[j + 1] - table[i];
+    //     }
+    //   }
+    // })();
+    // NumArray()
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+  // (function (doc,win,designWidth) {
+  //   const html = doc.documentElement;
+  //   const refreshRem = () => {
+  //     const clientWidth = html.clientWidth;
+  //     //考虑ipad
+  //     if(clientWidth >= designWidth) {
+  //       html.style.fontSize = '100px'
+  //     }else {
+  //       // html.style.fontSize = 16 * clientWidth / 375 + 'px'
+  //       html.style.fontSize = 100/(clientWidth/designWidth) + 'px'
+  //     }
+  //   }
+  //   //dom加载完的一个事件
+  //   doc.addEventListener("DOMContentLoaded",refreshRem)
+  // }(document, window, 750))
+  
+  
+  
+  </script>
+  <style>
+    #demo1 {
+      width: 300px;
+      height: 300px;
+      background: #007aff;
+    }
+
+    #demo2 {
+      width: 100px;
+      height: 100px;
+      background: #0ff;
+    }
+    #demo1 #demo2{
+      background: #007aff;
+    }
+    #demo1>#demo2{
+      background: red;
+    }
+
+    
+  </style>
+</head>
+
+<body>
+  <div id="demo1">demo1
+    <div id="demo2">demo2</div>
+  </div>
+
+  <script>
+
+    // const a = 10
+    // const b = 20
+    // (function a(b){
+    //   a = 1
+    //   b = 2
+    //   console.log(a)
+    // }(10))
+    // console.log(1)
+    // setTimeout(() => {
+    //   console.log(2)
+    //   new Promise((resolve, reject) => {
+    //     console.log(3)
+    //     resolve()
+    //   })
+    // }, 1);
+    // new Promise((resolve, reject) => {
+    //   console.log(4)
+    //   resolve()
+    // })
+    // setTimeout(() => {
+    //   console.log(5)
+    //   new Promise((resolve, reject) => {
+    //     console.log(6)
+    //     resolve()
+    //   })
+    // }, 2);
+
+
+
+  var demo1 = document.getElementById('demo1')
+  var demo2 = document.getElementById('demo2')
+  demo1.addEventListener('click', function() {
+    console.log('i am demo1 buhuo')
+  },true)
+  demo1.addEventListener('click', function() {
+    console.log('i am demo1 mappao')
+  })
+  demo2.addEventListener('click', function() {
+    console.log('i am demo2')
+  })
+  demo2.addEventListener('click', function() {
+    console.log('i am demo2 buhuo   ')
+  },true)
+  // var obj = {
+  //   name: '111',
+  //   arr: [1,2,3],
+  //   arr1: [
+  //     {
+  //       age: 1
+  //     },
+  //     {
+  //       name: '111'
+  //     }
+  //   ]
+  // }
+
+  // function clone (ori,obj) {
+  //   var obj = obj || {}
+  //   var myArr = '[object Array]'
+  //   var toStr = Object.prototype.toString
+  //   for (const key in ori) {
+  //     if (ori.hasOwnProperty(key)) {
+  //       if(ori[key] !== 'null' && (typeof ori[key]) == 'object') {
+  //         obj[key] = toStr.call(ori[key]) === myArr? [] : {}
+  //         clone(ori[key],obj[key])
+  //       }else {
+  //         obj[key] = ori[key]
+  //       }
+  //     }
+  //   }
+  //   return obj
+  // }
+
+
+  </script>
+
+</body>
+
+</html>

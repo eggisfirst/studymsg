@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // console.log(1+2*3) // 7
+    // console.log(1+3%2) // 2
+    // console.log("" + 3%2) // '1'
+    // console.log(+"" + 3%2) // 1
+    // console.log(+{} + "") // NaN   'NAN'
+    // console.log(100%4/0) // NaN
+    // console.log(null/null) // NaN
+    // var a;
+    // console.log(a+{}+123) // 'undefinedNaN123'
+    // console.log(1+""+2+3)  // '123'
+    // console.log({}*null) // 
+    // console.log(+""+100) // 100
+
+    //     ## 作业
+    // 1. 温度转换器
+    //    设置一个变量，保存摄氏温度(c)，将其转换为华氏温度(F)
+    //    F = (9/5)c + 32
+    // 2. 利息计算器
+
+    // 设置变量，分别存放本金  月数  年利率  计算利息
+    // var cDegree;
+    // var fDegree;
+
+    // function changeDegree(c) {
+    //   return  ((9/5)*c + 32)
+    // }
+
+    // function getInterest(capital,mounth,yearInterest) {
+
+    // }
+
+    console.log(0 && 1)
+    var chengji = 10
+    var result = (chengji > 60 && '及格') || (chengji < 60 && '不及格')
+    console.log(result)
+
+    var year = 2001
+    var res = year % 4 === 0 && year % 100 !== 0 || year % 400 === 0
+    var mount = (res && 28) || 29
+    console.log(mount)
+
+
+    var bj = 40
+    var nlx = 0.2
+     nlx = (bj > 20 && nlx*1.2) || nlx
+     console.log(nlx)
+
+  </script>
+</body>
+
+</html>
